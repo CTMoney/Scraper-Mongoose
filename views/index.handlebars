@@ -1,2 +1,25 @@
+<div class="container-fluid">
 
-<div>hey guyyy</div>
+    <div class="jumbotron mt-3 ml-3 mr-3">
+        <p class="display-4 text-center">Article Scraper</p>
+        <p class="lead text-center">hello - try loading some articles with that button right below me. :)</p>
+        <button type="button" class="btn btn-success mx-auto d-block">Scrape!</button>
+    </div>
+
+    <div class="row">
+        <div class="container col-8">
+            <p class="small text-center">Articles</p>
+            {{#each articleData}}
+
+            {{/each}}
+        </div>
+
+        <div class="container col">
+            <p class="small text-center">Notes</p>
+            {{#each noteData}}
+            
+            {{/each}}
+        </div>
+    </div>
+
+</div>

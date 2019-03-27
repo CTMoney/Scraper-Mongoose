@@ -1,4 +1,5 @@
 module.exports = {
-    Article: require("./newsModel"),
-    User: require("./userModel.js")
+    Article: require("./newsModel.js"),
+    User: require("./userModel.js"),
+    Note: require("./noteModel.js")
 };

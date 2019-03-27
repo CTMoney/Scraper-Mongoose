@@ -18,6 +18,10 @@ let ArticleSchema = new Schema({
         trim: true,
         unique: true,
         match: [/http/gi || /https/gi, "Please enter valid url"]
+    },
+    notes: {
+        type: Schema.Types.ObjectId,
+        ref: "Note"
     }
 })
 
