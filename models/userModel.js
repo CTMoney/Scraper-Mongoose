@@ -13,8 +13,10 @@ let UserSchema = new Schema({
         required: true,
         minLength: 6,
         maxLength: 24,
-        match: [/\W+/gm, "Must contain atleast one special character"],
-        match: [/[A-Z]/gm, "Must contain atleast one capitalized character"]
+        match: {
+            args: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#!@#$%^&*()~`=+_])[A-Za-z\d!@#$%^&*()~`=+_]{8,128}$/g,
+            msg: 'Please enter a password with atleast one of each: lowercase letter, uppercase letter, number, and special character'
+        }
     }
 })
 
