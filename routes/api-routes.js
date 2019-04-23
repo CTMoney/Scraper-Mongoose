@@ -10,23 +10,26 @@ module.exports = function (app) {
 
     axios.get("https://old.reddit.com/r/worldnews/", {
       validateStatus: function (status) {
-        return status > 201; // Reject only if the status code is greater than or equal to 201
+        return status < 201; // Reject only if the status code is greater than or equal to 201
       }
     }).then(response => {
+
       const $ = cheerio.load(response.data)
+      console.log($)
       $("div.top-matter").each((i, element) => {
         let result = {}
         result["headline"] = $(this)
           .children("p.title a")
           .text();
-        console.log($(this).children("p.title a").text());
+        console.log(result)
       })
       res.send("Scraped!")
+
     }).catch(err => {
       if (err.response) {
         // console.log(err.response.data)
         console.log(err.response.status)
-        // console.log(err.response.headers)
+        console.log(err.response.headers)
       }
     })
   })
